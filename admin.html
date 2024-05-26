@@ -44,18 +44,18 @@
             <div class="txt">Add new Product</div>
         </div>
         <div class="formContainer">
-            <form>
+            <form class="form" action="">
                 <label for="productName">Product Name</label>
                 <input type="text" name="name" placeholder="Product Name" id=productName>
                 <label for="productDescription">Product Description</label>
-                <input type="text" name="descritpion" placeholder="Product Descripton" id="productDescription">
+                <input type="text" name="descritpion" placeholder="Short Product Descripton" id="productDescription">
                 <label for="productDetails">Product Details</label>
                 <input type="text" name="details" placeholder="Product Details" id="productDetails">
                 <label for="price">Price in Ksh</label>
                 <input type="number" name="price" placeholder="Price" id="price">
                 <label for="image">Image URL</label>
                 <input type="text" name="image" placeholder="Image URL" id="image">
-                <div class="formButton"><button>Add Product</button></div>
+                <div class="formButton"><button type="submit">Add Product</button></div>
                 
             </form>
         </div>
@@ -91,6 +91,7 @@
         </div>
     </div>
 
+    <script src="./js/main.js"></script>
     <!-- <link href='https://unpkg.com/css.gg@2.0.0/icons/css/shopping-cart.css' rel='stylesheet'>    -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
