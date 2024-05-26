@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100vw;
+    overflow-x:hidden;
+}
+.main {
+    /* background-color: azure; */
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+.navContainer {
+    background-color: #041562;
+    color: #EEEEEE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100vw;
+}
+
+.nav {
+    width: 90vw;
+
+    display: flex;
+    justify-content: space-between;
+    /* padding: 35px 70px; */
+}
+
+.topLeft {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.logo{
+    font-size: 43px;
+    display: flex;
+    align-items: center;
+}
+.brandName{
+    font-size: 30px;
+}
+.moto{
+    color: #a3b0cc;
+}
+.cart{
+    color: #DA1212;
+    transition: transform 0.3s ease;
+}
+.cart:hover{
+    color: #87a8d6;
+    transform: scale(1.2);
+    
+    /* background-color: aqua; */
+}
+.toCart{
+    display: flex;
+    align-items: center;
+    color: #EEEEEE;
+}
+.products{
+    display: flex;
+    justify-content: center;
+    
+}
+.txt{
+    /* background-color: #6582ac; */
+    border-bottom: 3px solid #DA1212;
+    font-size: 25px;
+    padding: 10px;
+    /* width: 20vw; */
+    
+}
+.comodities{
+    /* background-color: black; */
+    display: flex;
+    flex-wrap: wrap;
+    width: 90vw;
+    gap: 20px;
+
+    justify-content: space-evenly;
+}
+.commodity{
+    /* background-color: pink; */
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    /* padding: 20px; */
+    /* border: 1px solid black; */
+    box-shadow:  0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+.commodity:hover{
+    transform: scale(1.05);
+}
+.commodity img{
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+.commodity img:hover{
+    transform: scale(1.02);
+    cursor: pointer;
+}
+.productName{
+    font-size: 25px;
+    color: #DA1212;
+}
+.descripton{
+    font-size: 18px;
+}
+.price{
+    color: rgb(18, 3, 42);
+}
+.bodyComodities{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0px;
+}
+.productDetails{
+    /* background-color: aquamarine; */
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+button{
+    border: none;
+    padding: 10px 20px;
+    background-color: #dccfcf;
+    color: #DA1212;
+    border-radius: 10px;
+    /* background-color: #11468F; */    
+    /* color: #EEEEEE; */
+}
+button:hover{
+    background-color: #11468F;
+       color: #EEEEEE;
+       cursor: pointer;
+    /* background-color: #EEEEEE; */
+    /* color: #DA1212; */
+}
+.stars{
+    display: flex;
+    gap: 5px;
+}
+.rates{
+    margin-left: 10px;
+}
+.stars ion-icon{
+    color: rgb(255, 217, 0);
+}
+.formContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+.formContainer form{
+    display: flex;
+    flex-direction: column;
+    /* background-color: #DA1212; */
+    width: 50vw;
+    gap :10px;
+    justify-content: center;
+}
+.formContainer form input{
+    padding: 10px 20px;
+}
+.formContainer button{
+    padding: 10px;
+    width: 70%;
+    /* background-color: yellow; */
+}
+.formButton{
+    display: flex;
+    justify-content: center;
+    /* background-color: #DA1212; */
+}
