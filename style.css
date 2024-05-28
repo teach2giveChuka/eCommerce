@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: "Roboto", sans-serif;   
 }
 body{
     width: 100vw;
@@ -57,6 +58,7 @@ body{
 .cart:hover{
     color: #87a8d6;
     transform: scale(1.2);
+    cursor:pointer;
     
     /* background-color: aqua; */
 }
@@ -103,7 +105,7 @@ body{
 }
 .commodity img{
     width: 100%;
-    height: 100%;
+    height: 230px;
     transition: transform 0.3s ease;
 }
 .commodity img:hover{
@@ -139,15 +141,22 @@ button{
     background-color: #dccfcf;
     color: #DA1212;
     border-radius: 10px;
-    /* background-color: #11468F; */    
-    /* color: #EEEEEE; */
+    background-color: #11468F;    
+    color: #EEEEEE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 button:hover{
     background-color: #11468F;
        color: #EEEEEE;
        cursor: pointer;
-    /* background-color: #EEEEEE; */
+    background-color: #041562;
     /* color: #DA1212; */
+}
+button ion-icon{
+    /* background-color: yellow; */
+    font-size: 25px;
 }
 .stars{
     display: flex;
@@ -186,3 +195,189 @@ button:hover{
     justify-content: center;
     /* background-color: #DA1212; */
 }
+
+/* Admin list */
+.deleteTable {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.productTable {
+    width: 90vw;
+    background-color: #EEEEEE;
+    border-collapse: collapse;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.productTable th, .productTable td {
+    padding: 15px;
+    text-align: left;
+}
+
+.productTable th {
+    background-color: #041562;
+    color: white;
+}
+
+.productTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.productTable img {
+    width: 100px;
+    height: 110px;
+    border-radius: 10px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.productTable button {
+    padding: 5px 10px;
+    transition: transform 0.3s ease;
+}
+
+.productTable .delete {
+    background-color: #ce3838;
+}
+
+.productTable .delete:hover {
+    background-color: #c21919;
+    transform: scale(1.02);
+}
+
+.productTable .modify {
+    background-color: #041562;
+}
+
+.productTable .modify:hover {
+    background-color: #11138f;
+    transform: scale(1.02);
+}
+
+.productTable .view:hover {
+    transform: scale(1.02);
+}
+
+
+
+
+/* General table styles */
+.productTable {
+    /* width: 100%; */
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.productTable th, .productTable td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+/* //popup */
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); 
+    overflow: auto; 
+    padding-top: 250px; 
+}
+
+.popup-content {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: #fefefe;
+    border-radius: 15px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+.popup-image {
+    width: 200px; 
+    height: 200px;
+    margin-right: 20px;
+    border-radius: 10px;
+ }
+ .product-details{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+ }
+
+#closePopup {
+    position: absolute;
+    top: 31vh;
+    left: 80vw;
+    color: #aaa;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    color: #c21919;
+    background-color: transparent;
+}
+
+
+
+@media screen and (max-width: 700px) {
+    .productTable thead {
+        display: none; /* Hide the table header */
+    }
+
+    .productTable,   .productTable td {
+        display: block;
+        width: 80%;
+    }
+
+    .productTable tr {
+        border-bottom: 2px solid black;
+        margin-bottom: 30px;
+    }
+
+    .productTable td {
+        text-align: left;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    /* .productTable td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: calc(50% - 20px);
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+    } */
+}
+
+/* Adjust table layout for even smaller screens */
+@media (max-width: 480px) {
+    .productTable td {
+        padding-left: 40%;
+    }
+
+    .productTable td::before {
+        left: 5px;
+        width: calc(50% - 10px);
+        padding-right: 5px;
+    }
+}
+
