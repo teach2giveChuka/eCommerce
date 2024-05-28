@@ -224,7 +224,7 @@ function create_Product(productData: any): HTMLTableRowElement {
 
 
     
-
+//modofy functioanlity to be added
     modifyItem.addEventListener('click', (e) => {
         e.preventDefault();
         modifyProduct(productData.id);
