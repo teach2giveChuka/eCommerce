@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="navContainer">
+            <div class="nav">
+
+                <div class="topLeft">
+
+                    <div class="logo">
+                        <ion-icon name="bag-handle-outline"></ion-icon>
+                    </div>
+
+                    <div class="brand">
+                        <div class="brandName" style="letter-spacing: 9px;">E-Mall</div>
+                        <div class="moto">Admin Dashboard</div>
+                    </div>
+
+                    
+
+                </div>
+
+                <div class="cart">
+                    <ion-icon name="briefcase-outline" style="font-size: 40px;"></ion-icon>
+                    
+                   
+                    <!-- <i class="gg-shopping-cart" style = "size: 20px;"></i> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="products">
+            <div class="txt">Add new Product</div>
+        </div>
+        <div class="formContainer">
+            <form class="form" action="">
+                <label for="productName">Product Name</label>
+                <input type="text" name="name" placeholder="Product Name" id=productName>
+                <label for="productDescription">Product Description</label>
+                <input type="text" name="descritpion" placeholder="Short Product Descripton" id="productDescription">
+                <label for="productDetails">Product Details</label>
+                <input type="text" name="details" placeholder="Product Details" id="productDetails">
+                <label for="price">Price in Ksh</label>
+                <input type="number" name="price" placeholder="Price" id="price">
+                <label for="image">Image URL</label>
+                <input type="text" name="image" placeholder="Image URL" id="image">
+                <div class="formButton"><button type="submit">Add Product</button></div>
+                
+            </form>
+        </div>
+
+        <div class="deleteTable">            
+            <!-- table from typescript to be deteting the elements -->
+        </div>
+
+        <div id="popup" class="popup">
+            <div class="popup-content" id="popupContent">
+                
+            </div>
+            <button id="closePopup"><ion-icon name="close-circle-outline"></ion-icon></button>
+        </div>        
+
+
+        <div class="footer" style="background-color: #DA1212;">
+            <div class="navContainer">
+                <div class="nav">
+                    <div class="topLeft">
+                        <div class="logo">
+                            <ion-icon name="bag-handle-outline"></ion-icon>
+                        </div>
+                        <div class="brand">
+                            <!-- <div class="brandName">E-Mall</div> -->
+                            <div class="moto">You shop, We deliver!</div>
+                        </div>
+                    </div>
+
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+    <!-- <link href='https://unpkg.com/css.gg@2.0.0/icons/css/shopping-cart.css' rel='stylesheet'>    -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
