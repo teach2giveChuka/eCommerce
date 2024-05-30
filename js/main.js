@@ -13,6 +13,8 @@ let productDescriptionLabel = document.querySelector('label[for="productDescript
 let productDetailsLabel = document.querySelector('label[for="productDetails"]');
 let priceLabel = document.querySelector('label[for="price"]');
 let imageLabel = document.querySelector('label[for="image"]');
+let buttonUpdate = document.querySelector('.btnupdate');
+let addnewItem = document.querySelector('.addnewItem');
 let formToggle = document.querySelector('.containerForm');
 let buttonToggle = document.querySelector('.addProdyctbtn');
 let exit = document.querySelector('.exit');
@@ -20,6 +22,8 @@ exit.addEventListener('click', (e) => {
     e.preventDefault();
     formToggle.style.display = 'none';
     buttonToggle.style.display = "flex";
+    buttonUpdate.style.display = 'none';
+    addnewItem.style.display = 'block';
 });
 buttonToggle.addEventListener('click', (e) => {
     e.preventDefault();
@@ -260,8 +264,6 @@ function create_Product(productData) {
     modifyItem.addEventListener('click', (e) => {
         console.log(`Pressed modify Button with id: ${productData.id}`);
         e.preventDefault();
-        let buttonUpdate = document.querySelector('.btnupdate');
-        let addnewItem = document.querySelector('.addnewItem');
         console.log(buttonUpdate.textContent);
         buttonUpdate.style.display = 'block';
         addnewItem.style.display = 'none';
