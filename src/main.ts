@@ -24,6 +24,9 @@ let productDetailsLabel = document.querySelector('label[for="productDetails"]') 
 let priceLabel = document.querySelector('label[for="price"]') as HTMLElement;
 let imageLabel = document.querySelector('label[for="image"]') as HTMLElement;
 
+let buttonUpdate = document.querySelector('.btnupdate') as HTMLButtonElement;
+let addnewItem = document.querySelector('.addnewItem') as HTMLButtonElement;
+
 
 let formToggle = document.querySelector('.containerForm') as HTMLElement;
 let buttonToggle = document.querySelector('.addProdyctbtn') as HTMLButtonElement;
@@ -33,7 +36,10 @@ exit.addEventListener('click',(e)=>{
     e.preventDefault();
     formToggle.style.display = 'none';
     buttonToggle.style.display = "flex";
-})
+
+    buttonUpdate.style.display = 'none';
+     addnewItem.style.display = 'block';
+}) 
 
 buttonToggle.addEventListener('click',(e)=>{
     e.preventDefault();
@@ -325,8 +331,7 @@ function updateProduct(productId: string): void {
     modifyItem.addEventListener('click', (e) => {
         console.log(`Pressed modify Button with id: ${productData.id}`)
         e.preventDefault();
-        let buttonUpdate = document.querySelector('.btnupdate') as HTMLButtonElement;
-        let addnewItem = document.querySelector('.addnewItem') as HTMLButtonElement;
+        
         console.log(buttonUpdate.textContent)
         buttonUpdate.style.display = 'block';
         addnewItem.style.display = 'none';
