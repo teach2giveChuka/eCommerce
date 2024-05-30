@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce</title>
+    <title>Cart</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <div class="main">
         <div class="navContainer">
@@ -21,7 +19,7 @@
                         <div class="moto">Shopping, just a click away</div>
                     </div>
                 </div>
-                <div class="cart" id="cartIcon">
+                <div class="cart">
                     <ion-icon name="cart-outline" style="font-size: 40px;"></ion-icon>
                     <div class="toCart">
                         To cart &nbsp; <ion-icon name="chevron-down-outline"></ion-icon>
@@ -29,17 +27,12 @@
                 </div>
             </div>
         </div>
-
-        <div class="products">
-            <div class="txt">Products</div>
-        </div>
-
-        <div class="bodyComodities">
-            <div class="comodities">
-                <!-- Products will be appended here by JavaScript -->
+        <div class="cartItems">
+            <div class="txt">Cart Items</div>
+            <div class="cartCommodities">
+                <!-- Cart items will be appended here by JavaScript -->
             </div>
         </div>
-
         <div class="footer" style="background-color: #DA1212;">
             <div class="navContainer">
                 <div class="nav">
@@ -57,14 +50,9 @@
                 </div>
             </div>
         </div>
-
-        <!-- Popup div for success message -->
-        <div id="popup" class="popupp">Successfully added to cart!</div>
     </div>
-
-    <script src="./js/user.js"></script>
+    <script src="./js/cart.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
-
 </html>

@@ -50,6 +50,16 @@ buttonToggle.addEventListener('click',(e)=>{
         txt.textContent = "Add New Product";
 })
 
+function showPopup(message: string, bgColor: string) {
+    const popup = document.querySelector('.popupp') as HTMLElement;
+    popup.textContent = message;
+    popup.style.backgroundColor = bgColor;
+    popup.style.display = 'block';
+    setTimeout(() => {
+        popup.style.display = 'none';
+    }, 3000);
+}
+
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -123,6 +133,8 @@ form.addEventListener('submit', (e) => {
     } catch (e) {
         console.log(e);
     }
+
+    showPopup('Product added successfully!', '#4CAF50');
 });
 
 let deleteTable = document.querySelector('.deleteTable') as HTMLElement;
@@ -200,7 +212,7 @@ function create_Product(productData: any): HTMLTableRowElement {
     modifyItem.classList.add('modify');
     modifyItem.innerHTML = `<ion-icon name="clipboard-outline"></ion-icon>`;
 
-    //event listeners for buttons
+    
     deleteItem.addEventListener('click', (e) => {
         e.preventDefault();
         console.log(`clicked button delete for id: ${productData.id}`)
@@ -208,11 +220,12 @@ function create_Product(productData: any): HTMLTableRowElement {
             fetch(`http://localhost:3000/Products/${productData.id}`, {
                 method: 'DELETE'
             })
+            showPopup('Product updated successfully!', '#4CAF50');
         }
         deleteProduct();
     })
 
-    // 
+   
     // Pop up function
     function viewProduct() {
         fetch(`http://localhost:3000/Products/${productData.id}`)
@@ -325,6 +338,8 @@ function updateProduct(productId: string): void {
     .catch(error => {
         console.error('Error updating product:', error.message);
     });
+
+    showPopup('Product updated successfully!', '#4CAF50');
 }
 
 
