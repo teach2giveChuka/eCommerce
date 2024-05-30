@@ -23,7 +23,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
+    height: 150px;
     width: 100vw;
 }
 
@@ -70,6 +70,7 @@ body{
 .products{
     display: flex;
     justify-content: center;
+    /* background-color: yellow; */
     
 }
 .txt{
@@ -147,6 +148,9 @@ button{
     justify-content: center;
     align-items: center;
 }
+.btnupdate{
+    display: none;
+}
 button:hover{
     background-color: #11468F;
        color: #EEEEEE;
@@ -169,10 +173,15 @@ button ion-icon{
     color: rgb(255, 217, 0);
 }
 .formContainer{
+    /* visibility: hidden; */
+    /* position: absolute; */
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 50px;
+}
+.containerForm{
+    display: none;
 }
 .formContainer form{
     display: flex;
@@ -192,8 +201,14 @@ button ion-icon{
 }
 .formButton{
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
     /* background-color: #DA1212; */
+}
+
+.exit{
+    color: #c21919;
+    font-size: 20px;
 }
 
 /* Admin list */
@@ -324,7 +339,7 @@ button ion-icon{
 #closePopup {
     position: absolute;
     top: 31vh;
-    left: 80vw;
+    left: 85vw;
     color: #aaa;
     font-size: 20px;
     border: none;
@@ -339,7 +354,11 @@ button ion-icon{
     .productTable thead {
         display: none; /* Hide the table header */
     }
-
+    .productTable{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .productTable,   .productTable td {
         display: block;
         width: 80%;
@@ -351,9 +370,21 @@ button ion-icon{
     }
 
     .productTable td {
-        text-align: left;
-        padding-left: 50%;
+
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        /* padding-left: 50%; */
         position: relative;
+    }
+    .buttons{
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row-reverse;
+        /* margin-left: 100px; */
+        /* background-color: #c21919; */
     }
 
     /* .productTable td::before {
@@ -371,12 +402,12 @@ button ion-icon{
 /* Adjust table layout for even smaller screens */
 @media (max-width: 480px) {
     .productTable td {
-        padding-left: 40%;
+        /* padding-left: 40%; */
     }
 
     .productTable td::before {
         left: 5px;
-        width: calc(50% - 10px);
+        /* width: calc(50% - 10px); */
         padding-right: 5px;
     }
 }

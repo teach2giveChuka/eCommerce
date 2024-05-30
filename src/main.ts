@@ -24,9 +24,29 @@ let productDetailsLabel = document.querySelector('label[for="productDetails"]') 
 let priceLabel = document.querySelector('label[for="price"]') as HTMLElement;
 let imageLabel = document.querySelector('label[for="image"]') as HTMLElement;
 
+
+let formToggle = document.querySelector('.containerForm') as HTMLElement;
+let buttonToggle = document.querySelector('.addProdyctbtn') as HTMLButtonElement;
+let exit = document.querySelector('.exit') as HTMLElement;
+
+exit.addEventListener('click',(e)=>{
+    e.preventDefault();
+    formToggle.style.display = 'none';
+    buttonToggle.style.display = "flex";
+})
+
+buttonToggle.addEventListener('click',(e)=>{
+    e.preventDefault();
+    console.log('clicked');
+    formToggle.style.display = 'block';
+    buttonToggle.style.display = "none";
+    let txt = document.querySelector('.txt') as HTMLElement;
+        txt.textContent = "Add New Product";
+})
+
+
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-
 
     let errorMessages = document.querySelectorAll('.error-message');
     errorMessages.forEach(error => error.remove());
@@ -224,11 +244,108 @@ function create_Product(productData: any): HTMLTableRowElement {
 
 
     
-//modofy functioanlity to be added
-    modifyItem.addEventListener('click', (e) => {
-        e.preventDefault();
-        modifyProduct(productData.id);
+//modify functioanlity to be added later
+
+function modifyProduct():void{
+    fetch(`http://localhost:3000/Products/${productData.id}`)
+    .then(response => response.json())
+    .then(productData => {
+        // let productNameInput = document.querySelector('#productName') as HTMLInputElement;
+        // let productDescriptionInput = document.querySelector('#productDescription') as HTMLInputElement;
+        // let productDetailsInput = document.querySelector('#productDetails') as HTMLInputElement;
+        // let priceInput = document.querySelector('#price') as HTMLInputElement;
+        // let imageInput = document.querySelector('#image') as HTMLInputElement;
+
+        // productNameInput.textContent = "namInput"
+   
+
+        // console.log(productNameInput.textContent);
+
+        (document.querySelector('#productName') as HTMLInputElement).value = productData.name;
+            (document.querySelector('#productDescription') as HTMLInputElement).value = productData.description;
+            (document.querySelector('#productDetails') as HTMLInputElement).value = productData.details;
+            (document.querySelector('#price') as HTMLInputElement).value = productData.price;
+            (document.querySelector('#image') as HTMLInputElement).value = productData.imageURL;
+
+            console.log(productData)
+
+            let btnupdate = document.querySelector('.btnupdate') as HTMLButtonElement;
+            btnupdate.addEventListener('click', (e)=>{
+            e.preventDefault();
+                console.log('hello')
+            console.log(productData.Id);  
+
+            updateProduct(productData.id)
+               
+    
+        })
+
+
+            
     })
+}
+
+function updateProduct(productId: string): void {
+    const productNameInput = document.querySelector('#productName') as HTMLInputElement;
+    const productDescriptionInput = document.querySelector('#productDescription') as HTMLInputElement;
+    const productDetailsInput = document.querySelector('#productDetails') as HTMLInputElement;
+    const priceInput = document.querySelector('#price') as HTMLInputElement;
+    const imageInput = document.querySelector('#image') as HTMLInputElement;
+
+    const updatedProduct = {
+        name: productNameInput.value,
+        description: productDescriptionInput.value,
+        details: productDetailsInput.value,
+        price: parseFloat(priceInput.value),
+        imageURL: imageInput.value
+    };
+
+    fetch(`http://localhost:3000/Products/${productId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedProduct)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error updating product');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Product updated successfully:', data);
+    })
+    .catch(error => {
+        console.error('Error updating product:', error.message);
+    });
+}
+
+
+    modifyItem.addEventListener('click', (e) => {
+        console.log(`Pressed modify Button with id: ${productData.id}`)
+        e.preventDefault();
+        let buttonUpdate = document.querySelector('.btnupdate') as HTMLButtonElement;
+        let addnewItem = document.querySelector('.addnewItem') as HTMLButtonElement;
+        console.log(buttonUpdate.textContent)
+        buttonUpdate.style.display = 'block';
+        addnewItem.style.display = 'none';
+        addnewItem 
+        formToggle.style.display = 'block';
+        buttonToggle.style.display = "none";
+        let txt = document.querySelector('.txt') as HTMLElement;
+        txt.textContent = "Update Product";
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+        modifyProduct();
+
+    })
+
+    /*update the database */
+
+  
 
     buttons.appendChild(modifyItem);
     buttons.appendChild(viewItem);

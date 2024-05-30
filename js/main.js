@@ -13,6 +13,22 @@ let productDescriptionLabel = document.querySelector('label[for="productDescript
 let productDetailsLabel = document.querySelector('label[for="productDetails"]');
 let priceLabel = document.querySelector('label[for="price"]');
 let imageLabel = document.querySelector('label[for="image"]');
+let formToggle = document.querySelector('.containerForm');
+let buttonToggle = document.querySelector('.addProdyctbtn');
+let exit = document.querySelector('.exit');
+exit.addEventListener('click', (e) => {
+    e.preventDefault();
+    formToggle.style.display = 'none';
+    buttonToggle.style.display = "flex";
+});
+buttonToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log('clicked');
+    formToggle.style.display = 'block';
+    buttonToggle.style.display = "none";
+    let txt = document.querySelector('.txt');
+    txt.textContent = "Add New Product";
+});
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     let errorMessages = document.querySelectorAll('.error-message');
@@ -181,10 +197,86 @@ function create_Product(productData) {
         const popup = document.getElementById('popup');
         popup.style.display = 'none';
     });
+    //modify functioanlity to be added later
+    function modifyProduct() {
+        fetch(`http://localhost:3000/Products/${productData.id}`)
+            .then(response => response.json())
+            .then(productData => {
+            // let productNameInput = document.querySelector('#productName') as HTMLInputElement;
+            // let productDescriptionInput = document.querySelector('#productDescription') as HTMLInputElement;
+            // let productDetailsInput = document.querySelector('#productDetails') as HTMLInputElement;
+            // let priceInput = document.querySelector('#price') as HTMLInputElement;
+            // let imageInput = document.querySelector('#image') as HTMLInputElement;
+            // productNameInput.textContent = "namInput"
+            // console.log(productNameInput.textContent);
+            document.querySelector('#productName').value = productData.name;
+            document.querySelector('#productDescription').value = productData.description;
+            document.querySelector('#productDetails').value = productData.details;
+            document.querySelector('#price').value = productData.price;
+            document.querySelector('#image').value = productData.imageURL;
+            console.log(productData);
+            let btnupdate = document.querySelector('.btnupdate');
+            btnupdate.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('hello');
+                console.log(productData.Id);
+                updateProduct(productData.id);
+            });
+        });
+    }
+    function updateProduct(productId) {
+        const productNameInput = document.querySelector('#productName');
+        const productDescriptionInput = document.querySelector('#productDescription');
+        const productDetailsInput = document.querySelector('#productDetails');
+        const priceInput = document.querySelector('#price');
+        const imageInput = document.querySelector('#image');
+        const updatedProduct = {
+            name: productNameInput.value,
+            description: productDescriptionInput.value,
+            details: productDetailsInput.value,
+            price: parseFloat(priceInput.value),
+            imageURL: imageInput.value
+        };
+        fetch(`http://localhost:3000/Products/${productId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedProduct)
+        })
+            .then(response => {
+            if (!response.ok) {
+                throw new Error('Error updating product');
+            }
+            return response.json();
+        })
+            .then(data => {
+            console.log('Product updated successfully:', data);
+        })
+            .catch(error => {
+            console.error('Error updating product:', error.message);
+        });
+    }
     modifyItem.addEventListener('click', (e) => {
+        console.log(`Pressed modify Button with id: ${productData.id}`);
         e.preventDefault();
-        modifyProduct(productData.id);
+        let buttonUpdate = document.querySelector('.btnupdate');
+        let addnewItem = document.querySelector('.addnewItem');
+        console.log(buttonUpdate.textContent);
+        buttonUpdate.style.display = 'block';
+        addnewItem.style.display = 'none';
+        addnewItem;
+        formToggle.style.display = 'block';
+        buttonToggle.style.display = "none";
+        let txt = document.querySelector('.txt');
+        txt.textContent = "Update Product";
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+        modifyProduct();
     });
+    /*update the database */
     buttons.appendChild(modifyItem);
     buttons.appendChild(viewItem);
     buttons.appendChild(deleteItem);
