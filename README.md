@@ -80,4 +80,4 @@ During the development of this e-commerce project, I enhanced my skills in:
 
 ## Author
 
-- GitHub: [Your-Username](https://github.com/teach2giveChuka/eCommerce)
+- GitHub: [Marshal-Emanuel(https://github.com/teach2giveChuka/eCommerce)
