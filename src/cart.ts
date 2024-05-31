@@ -1,13 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
     let cartCommodities = document.querySelector('.cartCommodities') as HTMLElement;
+    let itemsCountElement = document.querySelector('.itemsCount') as HTMLElement;
+    let totalPayableElement = document.querySelector('.payable') as HTMLElement;
+    let modal = document.querySelector('.modal') as HTMLElement;
+    let modalCloseButton = document.querySelector('.modal-close') as HTMLElement;
+    let modalMessage = document.querySelector('.modal-message') as HTMLElement;
     let purchaseHistory: {}[] = JSON.parse(localStorage.getItem('purchaseHistory') || '[]');
 
-    if (!cartCommodities) {
-        console.error('Cart commodities element not found');
+    if (!cartCommodities || !itemsCountElement || !totalPayableElement || !modal || !modalCloseButton || !modalMessage) {
+        console.error('Required elements not found');
         return;
     }
 
-    let cart: {}[] = JSON.parse(localStorage.getItem('cart') || '[]');
+    let cart: any[] = JSON.parse(localStorage.getItem('cart') || '[]');
+
+    updateItemsCount(cart.length);
+    updateTotalPayable(cart);
 
     if (cart.length === 0) {
         cartCommodities.innerText = 'Your cart is empty';
@@ -39,11 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let removeButton = document.createElement('button');
         removeButton.classList.add('removeButton');
-        removeButton.innerHTML = `<div class = "remove"> <div class = "rmBtn">Remove</div>&nbsp;<ion-icon name="bag-remove-outline"></ion-icon></div>`;
+        removeButton.innerHTML = `<div class="remove"><div class="rmBtn">Remove</div>&nbsp;<ion-icon name="bag-remove-outline"></ion-icon></div>`;
 
         removeButton.addEventListener('click', () => {
             removeProduct(productData);
             cartProduct.remove();
+            updateItemsCount(cart.length);
+            updateTotalPayable(cart);
         });
 
         cartProduct.appendChild(productImage);
@@ -64,25 +74,50 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
 
         if (cart.length === 0) {
-            alert('Your cart is empty!');
+            showModal('Your cart is empty!');
             return;
         }
 
-        // Add current cart items to purchase history
         purchaseHistory.push(...cart);
         localStorage.setItem('purchaseHistory', JSON.stringify(purchaseHistory));
 
-        // Clear cart
         cart = [];
         localStorage.setItem('cart', JSON.stringify(cart));
         cartCommodities.innerText = 'Your cart is empty';
+        updateItemsCount(cart.length);
+        updateTotalPayable(cart);
 
-        alert('Checkout successful!');
+        showModal('Checkout successful!');
     }
 
     function viewPurchaseHistory() {
         window.open('purchase-history.html');
     }
+
+    function updateItemsCount(count: number) {
+        itemsCountElement.innerText = count.toString();
+    }
+
+    function updateTotalPayable(cart: any[]) {
+        let total = cart.reduce((sum, product) => sum + product.price, 0);
+        totalPayableElement.innerText = 'Ksh ' + total;
+    }
+
+    function showModal(message: string) {
+        modalMessage.innerText = message;
+        modal.style.display = 'block';
+    }
+
+    function closeModal() {
+        modal.style.display = 'none';
+    }
+
+    modalCloseButton.addEventListener('click', closeModal);
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
 
     document.getElementById('checkoutForm')?.addEventListener('submit', handleCheckout);
     document.getElementById('viewPurchaseHistory')?.addEventListener('click', viewPurchaseHistory);

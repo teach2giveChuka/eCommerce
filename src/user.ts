@@ -1,12 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     let commodities = document.querySelector('.comodities') as HTMLElement;
-
+    let cartCountElement = document.getElementById('cartCount') as HTMLElement;
+    
     if (!commodities) {
         console.error('Commodities element not found');
         return;
     }
 
     let cart: {}[] = JSON.parse(localStorage.getItem('cart') || '[]');
+    updateCartCount(cart);
 
     fetch('http://localhost:3000/Products')
         .then(response => {
@@ -75,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cart.push(productData);
             localStorage.setItem('cart', JSON.stringify(cart));
             showPopup('Successfully added to cart!');
+            updateCartCount(cart);
         });
 
         productImage.appendChild(image);
@@ -99,6 +102,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000); 
     }
 
+    function updateCartCount(cart: {}[]) {
+        cartCountElement.innerText = cart.length.toString();
+    }
 
     let cartIcon = document.getElementById('cartIcon');
 
@@ -107,6 +113,4 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = 'cart.html';
         });
     }
-
-
 });

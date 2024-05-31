@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce</title>
+    <title>Purchase History</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,29 +16,25 @@
                     </div>
                     <div class="brand">
                         <div class="brandName" style="letter-spacing: 10px;">E-Mall</div>
-                        <div class="moto">Shopping, just a click away</div>
+                        <div class="moto">Pay Bay</div>
                     </div>
                 </div>
-                <div class="cart" id="cartIcon">
-                    <ion-icon name="cart-outline" style="font-size: 40px;"></ion-icon>
-                    <div class="cartCount" id="cartCount">0</div>
+                <div class="cart">
+                    <ion-icon name="cash-outline" style="font-size: 40px;"></ion-icon>
                     <div class="toCart">
-                        To cart &nbsp; <ion-icon name="chevron-down-outline"></ion-icon>
+                        Kanja &nbsp; <ion-icon name="chevron-down-outline"></ion-icon>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="products">
-            <div class="txt">Products</div>
-        </div>
-
-        <div class="bodyComodities">
-            <div class="comodities">
-                <!-- Products will be appended here by JavaScript -->
+        <div class="historyContainer">
+            <div class="cartIt">
+                <div class="txt">Purchase History</div>
+            </div>
+            <div class="historyItems">
+                <!-- Purchase history items here -->
             </div>
         </div>
-
         <div class="footer" style="background-color: #DA1212;">
             <div class="navContainer">
                 <div class="nav">
@@ -56,12 +52,8 @@
                 </div>
             </div>
         </div>
-
-        <!-- Popup div for success message -->
-        <div id="popup" class="popupp">Successfully added to cart!</div>
     </div>
-
-    <script src="./js/user.js"></script>
+    <script src="./js/purchase-history.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>

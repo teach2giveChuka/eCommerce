@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="main">
+    <div class="main" style="background-color: #F1F1F2;">
         <div class="navContainer">
             <div class="nav">
                 <div class="topLeft">
@@ -16,21 +16,47 @@
                     </div>
                     <div class="brand">
                         <div class="brandName" style="letter-spacing: 10px;">E-Mall</div>
-                        <div class="moto">Shopping, just a click away</div>
+                        <div class="moto">Pay Bay</div>
                     </div>
                 </div>
                 <div class="cart">
-                    <ion-icon name="cart-outline" style="font-size: 40px;"></ion-icon>
+                    <ion-icon name="cash-outline" style="font-size: 40px;"></ion-icon>
                     <div class="toCart">
-                        To cart &nbsp; <ion-icon name="chevron-down-outline"></ion-icon>
+                        Mukuchu &nbsp; <ion-icon name="chevron-down-outline"></ion-icon>
                     </div>
+                    <button id="viewPurchaseHistory">View Purchase History</button>
+               
                 </div>
+                
             </div>
         </div>
         <div class="cartItems">
-            <div class="txt">Cart Items</div>
-            <div class="cartCommodities">
-                <!-- Cart items will be appended here by JavaScript -->
+            <div class="cartIt">
+                <div class="txt">Cart Items</div>
+            </div>
+            <div class="cartPriceCom">
+                <div class="cartCommodities">
+                    <!-- Populate items from cart -->
+                </div>
+                <div class="payForm">
+                    <!-- Form for payment Mpesa :) -->
+                    <form id="checkoutForm">
+                        <p class="Mpesa"><img src="https://www.kise.co.ke/wp-content/uploads/2019/12/mpesa.jpg" alt=""></p>
+                        <p>Total items Count: &nbsp;
+                            <div class="itemsCount" id="itemsCount">
+                                <!-- Items count Dynamic -->
+                            </div>
+                        </p>
+                        <p>Total Amount Payable: &nbsp;
+                            <div class="payable" id="totalPayable">
+                                <!-- Price count Dynamic -->
+                            </div>
+                        </p>
+                        <input type="number" placeholder="Enter your Phone number (Optional*)" class="cardNum">
+                        <input type="text" placeholder="Enter your Phone holder name (Optional*)" class="cardHolderName">
+                        <button type="submit">Checkout &nbsp;<ion-icon name="checkmark-circle-outline"></ion-icon></button>
+                    </form>
+                     </div>
             </div>
         </div>
         <div class="footer" style="background-color: #DA1212;">
@@ -51,6 +77,15 @@
             </div>
         </div>
     </div>
+    
+    <!-- Modal Structure -->
+    <div class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <p class="modal-message"></p>
+        </div>
+    </div>
+
     <script src="./js/cart.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
