@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         popup.style.display = 'block';
         setTimeout(() => {
             popup.style.display = 'none';
-        }, 3000); // Hide after 3 seconds
+        }, 3000); 
     }
 
 
