@@ -1,6 +1,3 @@
-Sure, here's the updated README file with instructions on how to set up the project using JSON Server:
-
-````markdown
 # eCommerce
 
 ### E-Mall
@@ -84,4 +81,3 @@ During the development of this e-commerce project, I enhanced my skills in:
 ## Author
 
 - GitHub: [Your-Username](https://github.com/teach2giveChuka/eCommerce)
-````
