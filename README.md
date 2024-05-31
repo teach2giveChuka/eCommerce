@@ -1,3 +1,6 @@
+Sure, here's the updated README file with instructions on how to set up the project using JSON Server:
+
+````markdown
 # eCommerce
 
 ### E-Mall
@@ -8,6 +11,7 @@
   - [Features](#features)
   - [Screenshot](#screenshot)
   - [Links](#links)
+  - [Setup](#setup)
 - [Built with](#built-with)
 - [What I learned](#what-i-learned)
 - [Author](#author)
@@ -26,18 +30,41 @@ E-Mall is an online e-commerce application designed to provide a seamless shoppi
 
 ### Screenshot
 
-![E-Mall Screenshot 1](./images/screenshot1.PNG)
-![E-Mall Screenshot 2](./images/screenshot2.PNG)
-![E-Mall Screenshot 3](./images/screenshot3.PNG)
+![E-Mall Admin Dashboard](./images/screenshot1.PNG)
+![E-Mall Client Landing page](./images/screenshot2.PNG)
+![E-Mall Checkout Cart page](./images/screenshot3.PNG)
 
 ### Links
 
-- Solution URL: [E-Mall Source Code](https://github.com/your-username/E-Mall)
-- Live Site URL: [Live E-Mall Site](https://your-username.github.io/E-Mall/)
+- Solution URL: [E-Mall Source Code](https://github.com/teach2giveChuka/eCommerce)
 
-## My process
+### Setup
 
-### Built with
+To set up this project locally, follow these steps:
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/teach2giveChuka/eCommerce.git
+   cd eCommerce
+   ```
+
+2. **Install JSON Server:**
+
+   ```bash
+   npm install -g json-server
+   ```
+
+3. **Start JSON Server:**
+
+   ```bash
+   json-server --watch db.json --port 3000
+   ```
+
+4. **Open `index.html` in your browser:**
+   Simply open the `index.html` file in your web browser to view the application.
+
+## Built with
 
 - Semantic HTML5 markup
 - Vanilla CSS
@@ -56,4 +83,5 @@ During the development of this e-commerce project, I enhanced my skills in:
 
 ## Author
 
-- GitHub: [Your-Username](https://github.com/your-username)
+- GitHub: [Your-Username](https://github.com/teach2giveChuka/eCommerce)
+````
