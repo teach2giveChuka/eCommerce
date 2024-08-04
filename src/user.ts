@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     let commodities = document.querySelector('.comodities') as HTMLElement;
     let cartCountElement = document.getElementById('cartCount') as HTMLElement;
-     
+      
     if (!commodities) {
         console.error('Commodities element not found');
         return;
